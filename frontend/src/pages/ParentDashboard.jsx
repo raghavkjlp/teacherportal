@@ -29,40 +29,41 @@ export default function ParentDashboard() {
   };
 
   return (
-    <div>
+    <div className="container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
       <h2>Find a Tutor</h2>
       <div className="card" style={{marginTop: '1rem'}}>
-        <form onSubmit={applyFilters} style={{display: 'flex', gap: '1rem', flexWrap: 'wrap'}}>
-          <input type="text" name="city" placeholder="City" onChange={handleFilterChange} style={{padding: '0.5rem', borderRadius: '4px', border: '1px solid var(--border)'}} />
-          <input type="text" name="state" placeholder="State" onChange={handleFilterChange} style={{padding: '0.5rem', borderRadius: '4px', border: '1px solid var(--border)'}} />
-          <input type="text" name="nearArea" placeholder="Near Area" onChange={handleFilterChange} style={{padding: '0.5rem', borderRadius: '4px', border: '1px solid var(--border)'}} />
-          <input type="text" name="subject" placeholder="Subject" onChange={handleFilterChange} style={{padding: '0.5rem', borderRadius: '4px', border: '1px solid var(--border)'}} />
-          <select name="tuitionMode" onChange={handleFilterChange} style={{padding: '0.5rem', borderRadius: '4px', border: '1px solid var(--border)'}}>
+        <form onSubmit={applyFilters} style={{display: 'flex', gap: '0.75rem', flexWrap: 'wrap'}}>
+          <input className="form-control" type="text" name="city" placeholder="City" onChange={handleFilterChange} style={{flex: '1 1 140px'}} />
+          <input className="form-control" type="text" name="state" placeholder="State" onChange={handleFilterChange} style={{flex: '1 1 140px'}} />
+          <input className="form-control" type="text" name="nearArea" placeholder="Near Area" onChange={handleFilterChange} style={{flex: '1 1 140px'}} />
+          <input className="form-control" type="text" name="subject" placeholder="Subject" onChange={handleFilterChange} style={{flex: '1 1 140px'}} />
+          <select className="form-control" name="tuitionMode" onChange={handleFilterChange} style={{flex: '1 1 160px'}}>
             <option value="">Any Tuition Mode</option>
             <option value="home">Home Tuition Only</option>
             <option value="online">Online Tuition Only</option>
           </select>
-          <button type="submit" className="btn btn-primary">Search</button>
+          <button type="submit" className="btn btn-primary" style={{flex: '0 0 auto'}}>Search</button>
         </form>
       </div>
 
-      <div className="grid">
+      <div className="grid-3" style={{ marginTop: '1.5rem' }}>
         {teachers.map(teacher => (
-          <div key={teacher._id} className="card">
+          <div key={teacher._id} className="card card-hover">
             {teacher.photo && (
-              <img src={teacher.photo} alt={teacher.name} style={{width: '100px', height: '100px', borderRadius: '50%', objectFit: 'cover', marginBottom: '1rem', border: '2px solid var(--primary)'}} />
+              <img src={teacher.photo} alt={teacher.name} style={{width: '80px', height: '80px', borderRadius: '50%', objectFit: 'cover', marginBottom: '1rem', border: '2px solid var(--primary)'}} />
             )}
             <h3 style={{color: 'var(--primary)', marginBottom: '0.5rem'}}>{teacher.name}</h3>
-            <p><strong>Education:</strong> {teacher.educationLevel}</p>
-            <p><strong>Subjects:</strong> {teacher.specializationSubjects.join(', ')}</p>
-            <p><strong>Location:</strong> {teacher.city}, {teacher.state} ({teacher.nearArea})</p>
-            <p><strong>Mode:</strong> <span style={{textTransform: 'capitalize'}}>{teacher.tuitionMode || 'Not specified'}</span></p>
-            <p><strong>Phone:</strong> {teacher.phoneNumber}</p>
+            <p className="text-sm"><strong>Education:</strong> {teacher.educationLevel}</p>
+            <p className="text-sm"><strong>Subjects:</strong> {teacher.specializationSubjects.join(', ')}</p>
+            <p className="text-sm"><strong>Location:</strong> {teacher.city}, {teacher.state} ({teacher.nearArea})</p>
+            <p className="text-sm"><strong>Mode:</strong> <span style={{textTransform: 'capitalize'}}>{teacher.tuitionMode || 'Not specified'}</span></p>
+            <p className="text-sm"><strong>Phone:</strong> {teacher.phoneNumber}</p>
             <button className="btn btn-primary" style={{marginTop: '1rem', width: '100%'}} onClick={() => alert(`Contacting ${teacher.name}... (Feature to be implemented)`)}>Contact Tutor</button>
           </div>
         ))}
-        {teachers.length === 0 && <p>No tutors found matching your criteria.</p>}
+        {teachers.length === 0 && <p className="text-muted">No tutors found matching your criteria.</p>}
       </div>
     </div>
   );
 }
+

@@ -51,24 +51,22 @@ export default function Home() {
   return (
     <div style={{ paddingBottom: '4rem' }}>
       {/* Hero Section */}
-      <div style={{ background: 'linear-gradient(180deg, #e6f0ff 0%, #f4f7fb 100%)', padding: '4rem 20px 8rem', textAlign: 'center' }}>
+      <div className="hero-section" style={{ background: 'linear-gradient(180deg, #e6f0ff 0%, #f4f7fb 100%)' }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#e6f0ff', color: '#004de6', padding: '8px 16px', borderRadius: '100px', fontSize: '0.85rem', fontWeight: '600', marginBottom: '2rem', border: '1px solid rgba(0, 77, 230, 0.2)' }}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
           100% Background-Screened Academic Mentors
         </div>
 
-        <h1 style={{ fontSize: '3rem', color: '#0f172a', marginBottom: '1.5rem', lineHeight: '1.2', fontWeight: '800', maxWidth: '800px', margin: '0 auto 1.5rem' }}>
+        <h1 style={{ color: '#0f172a', marginBottom: '1.5rem', lineHeight: '1.2', fontWeight: '800', maxWidth: '800px', margin: '0 auto 1.5rem' }}>
           Find the Right Teacher for Your Learning Journey
         </h1>
-        <p style={{ fontSize: '1.1rem', color: '#475569', marginBottom: '3rem', maxWidth: '600px', margin: '0 auto 3rem' }}>
+        <p style={{ fontSize: '1.1rem', color: '#475569', maxWidth: '600px', margin: '0 auto 3rem' }}>
           Connect with verified teachers for online and home tuition tailored to your needs. Personalized 1-on-1 sessions designed to build confidence and top exam scores.
         </p>
-
-
       </div>
 
       <div className="container" style={{ marginTop: '-4rem', marginBottom: '4rem', zIndex: 10, position: 'relative' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem' }}>
+        <div className="grid-4">
           {[
             { title: '500+ Verified Tutors', desc: 'Government ID and criminal background checked rigorously.', icon: '🛡️' },
             { title: '1,000+ Students', desc: '98.4% recorded grade improvement within 8 weeks.', icon: '📈' },
@@ -90,9 +88,9 @@ export default function Home() {
 
       {/* Teachers List Section */}
       <div className="container mb-5">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '1.5rem' }}>
+        <div className="section-header">
           <div>
-            <h2 style={{ fontSize: '1.8rem', display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <h2 style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <span style={{ color: 'var(--primary)' }}>■</span> Find Teachers Near You
             </h2>
             <p className="text-muted mt-1">Showing <strong>85 Top Verified Tutors</strong> near <span style={{ color: 'var(--primary)', cursor: 'pointer' }}>New Delhi, India</span></p>
@@ -106,14 +104,14 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex gap-2 mb-4">
+        <div className="flex gap-2 mb-4" style={{ flexWrap: 'wrap' }}>
           <span className="text-xs text-muted" style={{ padding: '4px 0' }}>FILTERS:</span>
           <span className="pill pill-outline">Mode: All (Home & Online) ✕</span>
           <span className="pill pill-outline">Curriculum: CBSE / ICSE ✕</span>
           <span className="text-xs" style={{ color: 'var(--primary)', padding: '4px 8px', cursor: 'pointer' }}>Clear all</span>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
+        <div className="grid-3">
           {mockTeachers.map(teacher => (
             <div key={teacher._id} className="card card-hover" style={{ display: 'flex', flexDirection: 'column' }}>
               <div className="flex justify-between mb-4">
@@ -161,7 +159,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="flex justify-between items-center mt-6 p-4 bg-white rounded-lg border border-gray-200">
+        <div className="pagination-bar">
           <div className="text-sm text-muted">Showing 1 - 3 of 85 Teachers</div>
           <div className="flex gap-1">
             <button className="btn btn-outline text-sm" style={{ padding: '6px 12px' }}>Previous</button>
@@ -182,7 +180,7 @@ export default function Home() {
             <p className="text-muted mt-2">Teachers submit their credentials, which are rigorously verified by our AI and admin team before they appear on the platform.</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
+          <div className="grid-3" style={{ gap: '2rem' }}>
             {[
               { num: '01', title: 'Teacher Fills Details', desc: 'Tutors create a profile with their education, location, subjects, and ID proof for verification.', link: 'Secure registration', icon: '📝' },
               { num: '02', title: 'Admin & AI Verification', desc: 'Our advanced AI cross-checks credentials and an Admin manually approves the profile to ensure 100% safety and quality.', link: 'Trust and safety first', icon: '🛡️' },
@@ -209,10 +207,10 @@ export default function Home() {
 
       {/* CTA Section */}
       <div className="container mt-5">
-        <div style={{ background: '#0a192f', borderRadius: '24px', overflow: 'hidden', display: 'flex', color: 'white', position: 'relative' }}>
+        <div className="cta-flex" style={{ background: '#0a192f', borderRadius: '24px', overflow: 'hidden', color: 'white', position: 'relative' }}>
           
-          <div style={{ flex: 1, padding: '4rem', position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-            <h2 style={{ fontSize: '2.5rem', color: 'white', marginBottom: '1.5rem', lineHeight: '1.2' }}>Ready to Start Your Learning Journey?</h2>
+          <div className="cta-text">
+            <h2 style={{ color: 'white', marginBottom: '1.5rem', lineHeight: '1.2' }}>Ready to Start Your Learning Journey?</h2>
             <p style={{ color: '#94a3b8', fontSize: '1.1rem', marginBottom: '2.5rem', lineHeight: '1.6', maxWidth: '500px' }}>
               Whether you're looking to share your knowledge as a verified tutor or want to experience our interactive learning platform firsthand, we have the right path for you.
             </p>
@@ -228,7 +226,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div style={{ flex: 1, position: 'relative', minHeight: '400px' }}>
+          <div className="cta-image">
             <img 
               src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
               alt="Student taking online class" 

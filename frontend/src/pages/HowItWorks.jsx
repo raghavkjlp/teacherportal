@@ -66,7 +66,7 @@ export default function HowItWorks() {
               <p className="text-muted mt-1">From finding the right tutor to scheduling trial classes in just a few clicks.</p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2rem' }}>
+            <div className="grid-auto">
               {[
                 {
                   step: '01',
@@ -128,7 +128,7 @@ export default function HowItWorks() {
               <p className="text-muted mt-1">Grow your tutoring career with genuine students, flexible schedules, and fast verification.</p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2rem' }}>
+            <div className="grid-auto">
               {[
                 {
                   step: '01',

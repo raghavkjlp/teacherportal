@@ -36,7 +36,7 @@ export default function SafetyVerification() {
           <p className="text-muted mt-1">We enforce rigorous checks to ensure only high-caliber, safe tutors are listed.</p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', gap: '2rem', marginBottom: '4rem' }}>
+        <div className="grid-auto" style={{ marginBottom: '4rem' }}>
           {[
             {
               icon: '🤖',
@@ -71,7 +71,7 @@ export default function SafetyVerification() {
 
         {/* Parent Assurance Guarantee */}
         <div style={{ background: '#0a192f', color: '#ffffff', borderRadius: '20px', padding: '3.5rem', marginBottom: '4rem' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem', alignItems: 'center' }}>
+          <div className="grid-auto" style={{ alignItems: 'center' }}>
             <div>
               <div style={{ display: 'inline-block', background: 'rgba(0, 77, 230, 0.3)', color: '#60a5fa', padding: '4px 12px', borderRadius: '100px', fontSize: '0.8rem', fontWeight: '700', marginBottom: '1rem', border: '1px solid rgba(96, 165, 250, 0.3)' }}>
                 GUARANTEED PEACE OF MIND
