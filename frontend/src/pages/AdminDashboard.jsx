@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+
+const API = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 import { useNavigate } from 'react-router-dom';
 
 export default function AdminDashboard() {
@@ -14,7 +16,7 @@ export default function AdminDashboard() {
 
     const fetchUsers = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/users/all');
+        const res = await fetch(`${API}/api/users/all`);
         const data = await res.json();
         setUsers(data);
       } catch (error) {
@@ -27,7 +29,7 @@ export default function AdminDashboard() {
 
   const verifyUser = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/users/${id}/verify`, { method: 'PUT' });
+      const res = await fetch(`${API}/api/users/${id}/verify`, { method: 'PUT' });
       if (res.ok) {
         setUsers(users.map(u => u._id === id ? { ...u, isVerified: true } : u));
       }

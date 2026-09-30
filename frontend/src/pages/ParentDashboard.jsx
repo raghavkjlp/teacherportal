@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+const API = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 export default function ParentDashboard() {
   const [teachers, setTeachers] = useState([]);
   const [filters, setFilters] = useState({ city: '', state: '', nearArea: '', subject: '', tuitionMode: '' });
@@ -7,7 +9,7 @@ export default function ParentDashboard() {
   const fetchTeachers = async () => {
     const query = new URLSearchParams(filters).toString();
     try {
-      const res = await fetch(`http://localhost:5000/api/users/teachers?${query}`);
+      const res = await fetch(`${API}/api/users/teachers?${query}`);
       const data = await res.json();
       setTeachers(data);
     } catch (error) {
